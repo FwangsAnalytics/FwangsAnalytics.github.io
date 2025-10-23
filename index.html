@@ -1,265 +1,329 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Fwangshak Godson | Fwangs Analytics</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fwangshak Godson | Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+      rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript
-      ><link rel="stylesheet" href="assets/css/noscript.css"
-    /></noscript>
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --bg: #0f172a;
+        --text: #e2e8f0;
+        --accent: #38bdf8;
+        --shadow: rgba(56, 189, 248, 0.3);
+        --card-bg: #1e293b;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(8px);
+        padding: 8px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        box-shadow: 0 2px 10px var(--shadow);
+      }
+
+      header h1 {
+        font-weight: 600;
+        color: var(--accent);
+        letter-spacing: 1px;
+      }
+
+      nav a {
+        color: var(--text);
+        margin: 0 20px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      nav a:hover {
+        color: var(--accent);
+      }
+
+      #intro {
+        text-align: center;
+        padding: 160px 20px 40px;
+      }
+
+      #intro img {
+        width: 260px;
+        height: 260px;
+        border-radius: 50%;
+        margin-bottom: 25px;
+        border: 5px solid var(--accent);
+        box-shadow: 0 0 25px var(--shadow);
+        object-fit: cover;
+        background-color: #1e293b;
+        animation: fadeIn 1.5s ease;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+      }
+      #intro img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 40px var(--accent);
+      }
+
+      #intro h2 {
+        font-size: 2.2em;
+        margin-bottom: 10px;
+        color: var(--accent);
+      }
+
+      #intro p.tagline {
+        max-width: 700px;
+        margin: 0 auto;
+        font-weight: 300;
+        font-size: 1.1em;
+        color: #cbd5e1;
+      }
+
+      #about {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 20px 60px;
+        text-align: center;
+      }
+
+      #about p {
+        font-size: 1.05em;
+        font-weight: 300;
+        line-height: 1.8;
+        color: #d1d5db;
+        background: rgba(30, 41, 59, 0.6);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 0 20px var(--shadow);
+        transition: transform 0.3s ease;
+      }
+
+      #about p:hover {
+        transform: scale(1.01);
+      }
+
+      #projects {
+        padding: 60px 50px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .project {
+        background: var(--card-bg);
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0 0 20px var(--shadow);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .project:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 0 30px var(--accent);
+      }
+
+      .project img {
+        width: 100%;
+        height: 200px;
+        border-radius: 15px;
+        object-fit: cover;
+        margin-bottom: 15px;
+        transition: transform 0.3s ease;
+      }
+
+      .project:hover img {
+        transform: scale(1.05);
+      }
+
+      .project h3 {
+        color: var(--accent);
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .project p {
+        font-size: 0.95em;
+        margin-bottom: 15px;
+      }
+
+      .project a {
+        display: inline-block;
+        text-decoration: none;
+        background: var(--accent);
+        color: #0f172a;
+        padding: 8px 15px;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: background 0.3s ease, transform 0.3s ease;
+      }
+
+      .project a:hover {
+        background: #7dd3fc;
+        transform: scale(1.05);
+      }
+
+      footer {
+        text-align: center;
+        padding: 40px 20px;
+        background: #0b1120;
+        color: #94a3b8;
+        font-size: 0.9em;
+      }
+
+      footer .social-links {
+        margin-top: 15px;
+      }
+
+      footer .social-links a {
+        color: var(--accent);
+        margin: 0 10px;
+        font-size: 1.3em;
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+
+      footer .social-links a:hover {
+        color: #7dd3fc;
+        transform: scale(1.2);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      section {
+        scroll-margin-top: 90px;
+      }
+    </style>
   </head>
-  <body class="is-preload">
-    <!-- Wrapper -->
-    <div id="wrapper" class="fade-in">
-      <!-- Intro -->
-      <div id="intro">
-        <h1>Fwangshak Godson</h1>
-        <p>
-          Data Analyst | Power BI & Microsoft 365 | Transforming Data into
-          Strategic Insights
-        </p>
-        <ul class="actions">
-          <li>
-            <a href="#main" class="button icon solid solo fa-arrow-down scrolly"
-              >Explore Portfolio</a
-            >
-          </li>
-        </ul>
-      </div>
 
-      <!-- Header -->
-      <header id="header">
-        <a href="index.html" class="logo">Fwangs Analytics</a>
-      </header>
-
-      <!-- Nav -->
-      <nav id="nav">
-        <ul class="links">
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <ul class="icons alt">
-          <li>
-            <a
-              href="https://x.com/FwangsAnalytics"
-              class="icon brands alt fa-twitter"
-              ><span class="label">Twitter</span></a
-            >
-          </li>
-          <li>
-            <a
-              href="https://web.facebook.com/shedrach.godson/"
-              class="icon brands alt fa-facebook-f"
-              ><span class="label">Facebook</span></a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.linkedin.com/in/fwangsanalytics/"
-              class="icon brands alt fa-linkedin"
-              ><span class="label">linkedin</span></a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.instagram.com/fwangsanalytics/"
-              class="icon brands alt fa-instagram"
-              ><span class="label">Instagram</span></a
-            >
-          </li>
-          <li>
-            <a href="fwangsgodson@gmail.com" class="icon brands alt fa-envelope"
-              ><span class="label">Email</span></a
-            >
-          </li>
-          <li>
-            <a
-              href="https://github.com/FwangsAnalytics"
-              class="icon brands alt fa-github"
-              ><span class="label">GitHub</span></a
-            >
-          </li>
-        </ul>
+  <body>
+    <header>
+      <h1>Fwangs Analytics</h1>
+      <nav>
+        <a href="#intro">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
       </nav>
+    </header>
 
-      <!-- Main -->
-      <div id="main">
-        <!-- About -->
-        <section id="about" class="post featured">
-          <header class="major">
-            <h2>About Me</h2>
-          </header>
-          <img
-            src="images/profile_pic.jpg"
-            alt="Fwangshak Godson"
-            style="
-              border-radius: 50%;
-              max-width: 200px;
-              display: block;
-              margin: 0 auto;
-            "
-          />
-          <p>
-            I’m a Data Analyst passionate about transforming raw data into
-            actionable insights. With strong skills in Power BI, Excel, SQL, and
-            Python, I design interactive dashboards and automated reporting
-            systems that help organizations make smarter decisions. I currently
-            serve as Team Lead, Research at the Plateau State Peace Building
-            Agency, where I build data systems to track conflict, resettlement,
-            and peacebuilding activities across 17 LGAs.
-          </p>
-        </section>
+    <section id="intro">
+      <img
+        src="images/profile.jpg"
+        alt="Fwangshak Godson"
+        onerror="this.src='https://via.placeholder.com/220x220?text=Profile+Image';"
+      />
+      <h2>Fwangshak Godson</h2>
+      <p class="tagline">
+        Data Analyst | Power BI & Microsoft 365 | Transforming Data into
+        Strategic Insights
+      </p>
+    </section>
 
-        <!-- Projects -->
-        <section id="projects" class="posts">
-          <article>
-            <header>
-              <h2>Conflict Incident Dashboard – PPBA</h2>
-            </header>
-            <a href="#" class="image fit"
-              ><img
-                src="images/conflict_dashboard.jpg"
-                alt="Conflict Dashboard"
-            /></a>
-            <p>
-              An interactive Power BI dashboard tracking conflict incidents
-              across 17 LGAs of Plateau State. It helps leadership identify
-              hotspots and trends for evidence-based decision-making.
-            </p>
-          </article>
+    <section id="about">
+      <p>
+        I’m a Data Analyst passionate about transforming raw data into
+        actionable insights. With strong skills in Power BI, Excel, SQL, and
+        Python, I design interactive dashboards and automated reporting systems
+        that help organizations make smarter decisions. I currently serve as
+        Team Lead, Research at the Plateau State Peace Building Agency, where I
+        build data systems to track conflict, resettlement, and peacebuilding
+        activities across 17 LGAs.
+      </p>
+    </section>
 
-          <article>
-            <header>
-              <h2>Activity Monitoring Dashboard – PPBA</h2>
-            </header>
-            <a href="#" class="image fit"
-              ><img
-                src="images/activity_dashboard.jpg"
-                alt="Activity Dashboard"
-            /></a>
-            <p>
-              A performance dashboard integrating data from Excel and SharePoint
-              to monitor PPBA’s interventions. It provides a single source of
-              truth for progress tracking and accountability.
-            </p>
-          </article>
-
-          <article>
-            <header>
-              <h2>Business Profit & Sales Dashboard</h2>
-            </header>
-            <a href="#" class="image fit"
-              ><img
-                src="images/business_dashboard.jpg"
-                alt="Business Profit Dashboard"
-            /></a>
-            <p>
-              A Power BI solution built for a small business to track sales,
-              expenses, and profit margins. It improves financial planning and
-              decision-making through dynamic KPIs.
-            </p>
-          </article>
-
-          <article>
-            <header>
-              <h2>Personal Finance & Budget Analyzer</h2>
-            </header>
-            <a href="#" class="image fit"
-              ><img src="images/finance_dashboard.jpg" alt="Finance Dashboard"
-            /></a>
-            <p>
-              An Excel-based tool using PivotTables and Power Query to track
-              income, expenses, and savings goals. It automates reports and
-              provides insights into financial discipline.
-            </p>
-          </article>
-        </section>
+    <section id="projects">
+      <div class="project">
+        <img src="images/project1image.JPG" alt="Conflict Incident Dashboard" />
+        <h3>Conflict Incident Dashboard</h3>
+        <p>
+          An interactive Power BI dashboard that visualizes conflict trends and
+          hotspots across Plateau State, enabling data-driven decision-making
+          for peace interventions.
+        </p>
+        <a href="#">View Project</a>
       </div>
 
-      <!-- Footer -->
-      <footer id="footer">
-        <section class="split contact">
-          <section class="alt">
-            <h3>Location</h3>
-            <p>Jos, Plateau State, Nigeria</p>
-          </section>
-          <section>
-            <h3>Phone</h3>
-            <p>
-              <a>+234 813 6804 393</a>
-            </p>
-          </section>
-          <section>
-            <h3>Email</h3>
-            <p>
-              <a href="fwangsgodson@gmail.com">fwangsgodson@gamil.com</a>
-            </p>
-          </section>
-          <section>
-            <h3>Social</h3>
-            <ul class="icons alt">
-              <li>
-                <a
-                  href="https://x.com/FwangsAnalytics"
-                  class="icon brands alt fa-twitter"
-                  ><span class="label">Twitter</span></a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://web.facebook.com/shedrach.godson/"
-                  class="icon brands alt fa-facebook-f"
-                  ><span class="label">Facebook</span></a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://www.linkedin.com/in/fwangsanalytics/"
-                  class="icon brands alt fa-linkedin"
-                  ><span class="label">linkedin</span></a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://www.instagram.com/fwangsanalytics/"
-                  class="icon brands alt fa-instagram"
-                  ><span class="label">Instagram</span></a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://github.com/FwangsAnalytics"
-                  class="icon brands alt fa-github"
-                  ><span class="label">GitHub</span></a
-                >
-              </li>
-            </ul>
-          </section>
-        </section>
-      </footer>
-
-      <!-- Copyright -->
-      <div id="copyright">
-        <ul>
-          <li>&copy; 2025 Fwangs Analytics</li>
-          <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-        </ul>
+      <div class="project">
+        <img src="images/project2image.JPG" alt="Peace Tracker" />
+        <h3>Peace Tracker</h3>
+        <p>
+          A monitoring tool designed to track peacebuilding activities and
+          outcomes across 17 LGAs, integrating Power Apps, SharePoint, and Power
+          BI for real-time reporting.
+        </p>
+        <a href="#">View Project</a>
       </div>
-    </div>
 
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+      <div class="project">
+        <img src="images/project3image.jpg" alt="Success Story Portal" />
+        <h3>Budget Tracker</h3>
+        <p>
+          An Excel-based tool using Power Query and PivotTables to track income,
+          expenses, and savings goals. Features custom dashboards for clear
+          financial insights and improved budgeting discipline.
+        </p>
+        <a href="#">View Project</a>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <p>
+        © 2025 Fwangshak Godson | Connect via
+        <a
+          href="mailto:fwangshakgodson@gmail.com"
+          style="color: var(--accent); text-decoration: none"
+          >Email</a
+        >
+      </p>
+
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/fwangshakgodson" target="_blank"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+        <a href="https://github.com/fwangshakgodson" target="_blank"
+          ><i class="fab fa-github"></i
+        ></a>
+        <a href="https://twitter.com/fwangshakgodson" target="_blank"
+          ><i class="fab fa-x-twitter"></i
+        ></a>
+        <a href="https://facebook.com/fwangshak.godson" target="_blank"
+          ><i class="fab fa-facebook"></i
+        ></a>
+      </div>
+    </footer>
   </body>
 </html>
